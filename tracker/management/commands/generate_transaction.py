@@ -1,7 +1,7 @@
 import random
 from faker import Faker
 from django.core.management.base import BaseCommand
-from tracker.models import User, Category, Trasaction
+from tracker.models import User, Category, Transaction
 
 
 class Command(BaseCommand):
@@ -31,7 +31,7 @@ class Command(BaseCommand):
             user = User.objects.create_user(username="Test", password="1234")
         categories = Category.objects.all()
         for i in range(20):
-            Trasaction.objects.create(
+            Transaction.objects.create(
                 user=user,
                 category=random.choice(categories),
                 type=random.choice(["income", "expense"]),

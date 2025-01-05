@@ -1,6 +1,6 @@
 from django.contrib import admin
-from tracker.models import Category, Trasaction
+from tracker.models import Category, Transaction
 
 # Register your models here.
-admin.site.register(Trasaction)
+admin.site.register(Transaction)
 admin.site.register(Category)
