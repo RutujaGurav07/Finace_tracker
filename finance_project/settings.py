@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.humanize",
     
     # external apps
     "django_extensions",
@@ -52,6 +53,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'django_htmx.middleware.HtmxMiddleware',  # Add this middleware
+
 ]
 
 ROOT_URLCONF = "finance_project.urls"

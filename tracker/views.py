@@ -8,10 +8,19 @@ def index(request):
     return render(request, 'tracker/index.html')
 
 @login_required
-def transaction_list(request):
+def transactions_list(request):
     transactions_filter = TransactionFilter(
         request.GET,
         queryset=Transaction.objects.filter(user=request.user).select_related('category')
     )
-    context = {'filter': transactions_filter}
+    total_income = transactions_filter.qs.get_total_income()
+    total_expense = transactions_filter.qs.get_total_expense()
+    context = {
+        'filter': transactions_filter,
+        'total_income': total_income,
+        'total_expense': total_expense,
+        'net_income': total_income - total_expense,
+    }
+    if request.htmx:
+        return render(request, 'tracker/partials/transactions_container.html', context)
     return render(request, 'tracker/transaction-list.html', context)
