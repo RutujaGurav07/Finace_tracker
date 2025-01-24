@@ -38,13 +38,13 @@ Ensure you have the following installed:
 1. **Clone the Repository:**
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/RutujaGurav07/Finace_tracker.git)
    cd finance-tracker
    ```
 
 2. **Create and Activate Virtual Environment:**
 
-   ```bash
+   ```bas
    python -m venv venv
    source venv/bin/activate   # On Windows use: venv\Scripts\activate
    ```
